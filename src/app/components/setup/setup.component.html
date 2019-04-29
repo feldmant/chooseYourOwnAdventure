@@ -1,0 +1,9 @@
+<div class="container">
+	<h4> Your Challenge </h4>
+	<p>
+	{{plot.setup}}
+	</p>
+	<button [routerLink]="['/resolution', plot.id, 'a']">(A) {{plot.a.action}}</button>
+	<button [routerLink]="['/resolution', plot.id, 'b']">(B) {{plot.b.action}}</button>
+	<button [routerLink]="['/resolution', plot.id, 'c']">(C) {{plot.b.action}}</button>
+</div>

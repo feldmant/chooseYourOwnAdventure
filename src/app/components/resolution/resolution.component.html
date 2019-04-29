@@ -1,0 +1,10 @@
+<div class="container">
+	<p>
+		{{action.resolution}}
+	</p>
+	<p> 
+		Your temperature change: {{action.tempDelta}}
+	</p>
+	<button [routerLink]="['/setup', action.next]">What's next?</button>
+
+</div>
