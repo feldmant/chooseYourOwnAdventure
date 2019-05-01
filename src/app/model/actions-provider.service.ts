@@ -24,7 +24,7 @@ export class ActionsProviderService {
 
   getAction(id: number, choice: string): Action {
   	let plot: Plot = this.getPlot(id);
-  	let action: Action = plot.choice;
+  	let action: Action = plot[choice];
   	return action;
   }
 }

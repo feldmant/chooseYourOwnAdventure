@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { TemperatureService } from '../../services/temperature-service.service'
+
 @Component({
  	selector: 'app-start',
    	templateUrl: './start.component.html',
@@ -8,13 +10,13 @@ import { Router } from '@angular/router';
 })
 export class StartComponent implements OnInit {
 	attemptToGet_playerName: any;
-	attemptToGet_gameSate: any;
+	attemptToGet_gameState: any;
 	playerName: string = 'Player Name';
 	previousGame: boolean = false;
 	resumeGameId: number;
 	temperature: number = 1.5;
 
-	constructor() { }
+	constructor(private router: Router, private provider: TemperatureService) { }
 
 	ngOnInit() {
 		this.attemptToGet_playerName = localStorage.getItem('chooseYourOwnAdventure_playerName')
@@ -23,22 +25,19 @@ export class StartComponent implements OnInit {
 		}
 		this.attemptToGet_gameState = localStorage.getItem('chooseYourOwnAdventure_gameState')
 		if (this.attemptToGet_gameState != null) {
-			this.resumeGameId = JSON.parse(
-			this.attemptToGet_gameState).currentPlotId;
-			previousGame = true;
+			this.resumeGameId = JSON.parse(this.attemptToGet_gameState).currentPlotId;
+			this.previousGame = true;
 		}
-
-		/** setup observable for temperature **/
 	}
 
 	resumeGame() {
-		/** send temperature to observable **/
-		this.router.navigate(['/setup', resumeGameId]);
+		this.router.navigate(['/setup', this.resumeGameId]);
+		this.provider.setTemp(3)
 	}
 
 	startNew() {
-		/** send temperature to observable **/
-		localStorage.setItem('chooseYourOwnAdventure_gameState', JSON.stringify({currentPlotId: 1, temperature: 1.5}));
+		localStorage.setItem('chooseYourOwnAdventure_gameState', JSON.stringify({'currentPlotId': 1, 'temperature': 1.5}));
+		this.provider.setTemp(1.5);
 		this.router.navigate(['/setup', 1]);
 	}
 

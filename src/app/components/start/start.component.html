@@ -6,7 +6,9 @@
 	<!-- else enter player name 
 		Player name will display in svg path
 		on the cape of the superhero person in the graphic-->
-	<input type="text" [(ngModel)]="playerName"/>
+	<form>
+		<input name="name" type="text" [(ngModel)]="playerName"/>
+	</form>
 	<button (click)="startNew()">New Game</button>
 	<button *ngIf="previousGame" (click)="resumeGame()">Resume Game</button>
 </div>

@@ -1,6 +1,6 @@
 export class Action {
-	'action':		string;
-	'resolution': 	string;
-	'next': 		number;
-	'tempDelta':	number;
+	action:			string;
+	resolution: 	string;
+	next: 			number;
+	tempDelta:		number;
 }

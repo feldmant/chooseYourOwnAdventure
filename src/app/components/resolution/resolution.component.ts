@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router} from '@angular/router';
 
-import { Action } form '../../model/actions';
+import { Action } from '../../model/actions';
 import { ActionsProviderService } from '../../model/actions-provider.service';
+import { TemperatureService } from '../../services/temperature-service.service';
+
 
 @Component({
 	selector: 'app-resolution',
@@ -18,13 +20,14 @@ export class ResolutionComponent implements OnInit {
 	temperature: number;
 
 
-	constructor(private route: ActivatedRoute, private provider: AddressProviderService) { }
+	constructor(private route: ActivatedRoute, 
+		private provider: ActionsProviderService, private router: Router, private tempProvider: TemperatureService) { }
 
 	ngOnInit() {
 		let id = this.route.snapshot.params['id'];
 		let choice = this.route.snapshot.params['choice'];
 		this.action = this.provider.getAction(id, choice);
-		updateTemp(this.action.tempDelta);
+		this.updateTemp(this.action.tempDelta);
 		if (this.temperature >= 3.0) {
 			this.router.navigate(['/fierydeath'])
 		} else if (this.temperature <= 1.0) {
@@ -32,7 +35,7 @@ export class ResolutionComponent implements OnInit {
 		}
 	}
 
-	updateTemp(tempDelta: number;) {
-		/** update temperature observable **/
+	updateTemp(tempDelta: number) {
+		this.tempProvider.updateTemp(tempDelta);
 	}
 }

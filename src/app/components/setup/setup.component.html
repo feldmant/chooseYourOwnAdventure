@@ -1,9 +1,12 @@
 <div class="container">
 	<h4> Your Challenge </h4>
 	<p>
-	{{plot.setup}}
+	{{currentPlot.setup}}
 	</p>
-	<button [routerLink]="['/resolution', plot.id, 'a']">(A) {{plot.a.action}}</button>
-	<button [routerLink]="['/resolution', plot.id, 'b']">(B) {{plot.b.action}}</button>
-	<button [routerLink]="['/resolution', plot.id, 'c']">(C) {{plot.b.action}}</button>
+	<button [routerLink]="['/resolution', currentPlot.id, 'a']">(A) {{currentPlot.a.action}}</button>
+	<button [routerLink]="['/resolution', currentPlot.id, 'b']">(B) {{currentPlot.b.action}}</button>
+	<button [routerLink]="['/resolution', currentPlot.id, 'c']">(C) {{currentPlot.b.action}}</button>
+	<br>
+	<br>
+	<button [routerLink]="['/']">Start Over</button>
 </div>
