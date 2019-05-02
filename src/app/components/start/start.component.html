@@ -1,14 +1,22 @@
 <div>
 	<h3> So You Think You Can Stop Global Warming? </h3>
-
-	<!-- start graphic -->
-
-	<!-- else enter player name 
-		Player name will display in svg path
-		on the cape of the superhero person in the graphic-->
-	<form>
-		<input name="name" type="text" [(ngModel)]="playerName"/>
-	</form>
-	<button (click)="startNew()">New Game</button>
-	<button *ngIf="previousGame" (click)="resumeGame()">Resume Game</button>
+	
+	<svg width="700" height="400">
+		<defs>
+			<linearGradient id="grad" x1="0%" y1="0%" x2="0%" y2="100%">
+				<stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:0" />
+				<stop offset="100%" style="stop-color:rgb(255,255,255);stop-opacity:1.0" />
+			</linearGradient>
+		</defs>
+		<image xlink:href="../../../assets/Earth.png" x="0" y="0" height="600"/>
+		<rect x="0" y="385" width="700" height="15" fill="url(#grad)" />
+	</svg>
+	
+	<div style="margin-top: 20px">
+		<form>
+			<input name="name" type="text" [(ngModel)]="playerName"/>
+		</form>
+		<button (click)="startNew()">New Game</button>
+		<button *ngIf="previousGame" (click)="resumeGame()">Resume Game</button>
+	</div>
 </div>

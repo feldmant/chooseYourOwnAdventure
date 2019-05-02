@@ -21,9 +21,6 @@ export class SetupComponent implements OnInit {
 	ngOnInit() {
 		let id = this.route.snapshot.params['id'];
 		this.currentPlot = this.provider.getPlot(id);
-
-		/** subscribe to observable to get temperature **/
-
 		localStorage.setItem('chooseYourOwnAdventure_gameState', JSON.stringify({currentPlotId: id, temperature: this.temperature}));
   	}
 

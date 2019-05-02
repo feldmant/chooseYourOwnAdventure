@@ -19,8 +19,14 @@ export class TemperatureService {
   		return this.temperature;
   	}
 
-  	updateTemp(tempDelta: number): void {
+  	updateTemp(tempDelta: number): number {
   		this.temperature = this.temperature + tempDelta;
+  		if (this.temperature < 1.0) {
+  			this.temperature = 1.0;
+  		} else if (this.temperature > 3.0) {
+  			this.temperature = 3.0;
+  		}
   		this.tempChange.next(this.temperature);
+  		return this.temperature;
   	}
 }
