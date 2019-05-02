@@ -36,6 +36,7 @@ export class StartComponent implements OnInit {
 	}
 
 	startNew() {
+		localStorage.setItem('chooseYourOwnAdventure_playerName', this.playerName);
 		this.provider.setTemp(1.5);
 		this.router.navigate(['/setup', 1]);
 	}
