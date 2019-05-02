@@ -1,12 +1,16 @@
 <div class="container">
-	<p>
-		{{action.resolution}}
-	</p>
-	<p> 
-		Your temperature change: {{action.tempDelta}}
-	</p>
-	<button [routerLink]="['/setup', action.next]">What's next?</button>
-	<br>
-	<br>
-	<button [routerLink]="['/']">Start Over</button>
+	<div style="margin-right: 200px">
+		<p>
+			{{action.resolution}}
+		</p>
+		<p> 
+			Your temperature change: {{action.tempDelta}}
+		</p>
+		<button [routerLink]="['/setup', action.next]">What's next?</button>
+		<br>
+		<br>
+		<div style="margin-top: 50px">
+			<button [routerLink]="['/']">Start Over</button>
+		</div>
+	</div>
 </div>

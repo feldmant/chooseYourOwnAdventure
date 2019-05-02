@@ -1,12 +1,16 @@
 <div class="container">
-	<h3> Your Challenge </h3>
-	<p>
-	{{currentPlot.setup}}
-	</p>
-	<button [routerLink]="['/resolution', currentPlot.id, 'a']">(A) {{currentPlot.a.action}}</button>
-	<button [routerLink]="['/resolution', currentPlot.id, 'b']">(B) {{currentPlot.b.action}}</button>
-	<button [routerLink]="['/resolution', currentPlot.id, 'c']">(C) {{currentPlot.b.action}}</button>
-	<br>
-	<br>
-	<button [routerLink]="['/']">Start Over</button>
+	<div style="margin-right: 200px">
+		<h3> Your Challenge </h3>
+		<p>
+		{{currentPlot.setup}}
+		</p>
+		<button [routerLink]="['/resolution', currentPlot.id, 'a']">(A) {{currentPlot.a.action}}</button>
+		<br>
+		<button [routerLink]="['/resolution', currentPlot.id, 'b']">(B) {{currentPlot.b.action}}</button>
+		<br>
+		<button [routerLink]="['/resolution', currentPlot.id, 'c']">(C) {{currentPlot.c.action}}</button>
+		<div style="margin-top: 50px">
+			<button [routerLink]="['/']">Start Over</button>
+		</div>
+	</div>
 </div>
