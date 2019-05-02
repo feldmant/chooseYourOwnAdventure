@@ -32,11 +32,10 @@ export class StartComponent implements OnInit {
 
 	resumeGame() {
 		this.router.navigate(['/setup', this.resumeGameId]);
-		this.provider.setTemp(3)
+		this.provider.setTemp(JSON.parse(this.attemptToGet_gameState).temperature);
 	}
 
 	startNew() {
-		localStorage.setItem('chooseYourOwnAdventure_gameState', JSON.stringify({'currentPlotId': 1, 'temperature': 1.5}));
 		this.provider.setTemp(1.5);
 		this.router.navigate(['/setup', 1]);
 	}

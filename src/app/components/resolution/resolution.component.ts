@@ -35,7 +35,8 @@ export class ResolutionComponent implements OnInit {
 		}
 	}
 
-	updateTemp(tempDelta: number): void{
-		this.temperature = this.tempProvider.updateTemp(tempDelta);
+	updateTemp(tempDelta: number): void {
+		this.tempProvider.updateTemp(tempDelta);
+		this.temperature = this.tempProvider.getTemp();
 	}
 }

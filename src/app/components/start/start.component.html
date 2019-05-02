@@ -7,9 +7,14 @@
 				<stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:0" />
 				<stop offset="100%" style="stop-color:rgb(255,255,255);stop-opacity:1.0" />
 			</linearGradient>
+			<path id="nameCurve" d="M 350,220 Q 410,220 500,100" ></path>
 		</defs>
 		<image xlink:href="../../../assets/Earth.png" x="0" y="0" height="600"/>
 		<rect x="0" y="385" width="700" height="15" fill="url(#grad)" />
+		<image xlink:href="../../../assets/superhero.png" x="250" y="100" height="300"/>
+		<text text-anchor="middle"  >
+			<textPath xlink:href="#nameCurve" startOffset="15%">{{playerName}}</textPath>
+		</text>
 	</svg>
 	
 	<div style="margin-top: 20px">
